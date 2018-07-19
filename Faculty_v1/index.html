@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/mlib-styles@^0/dist/mlib-styles.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
+
+    <title>SALI Request Form</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <header class="site-header">
+        <div class="container container--full site-header-container">
+          <div class="site-title-container">
+            <a href="#" class="site-link site-title-flex"><img class="site-logo" src="https://mlibrary.github.io/design-system/img/umich_block_m.png" alt="University of Michigan"><span class="site-title">Library</span></a>
+          </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="heading-large">Request a Library Instruction Session</h2>
+        <main class="container">
+            <form>
+                <div class="container" id="contact">
+                    <h3 class="heading-medium">Contact Info / Purpose</h3>
+                </br>
+
+                    <div class="form-group">
+                            <label class="form-label" for="contact-person">Contact Person</label>
+                            <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-label" for="contact-email">Contact Email</label>
+                            <input class="form-control" id="contact-email" type="email" name="contact-email" value="sallOli@umich.edu"/>
+                    </div>
+
+                    <div class="form-group">
+                        <fieldset class="inline" onchange="toggleCourseSection()">
+                            <legend>
+                                Is the session for a UofM course?
+                            </legend>
+                    
+                            <div class="multiple-choice">
+                            <label>
+                                <input type="radio" name="course-related" value="Yes" checked>
+                                Yes
+                            </label>
+                            </div>
+                            <div class="multiple-choice">
+                            <label>
+                                <input type="radio" id="nonCourse" name="course-related" value="No">
+                                No
+                            </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-group">
+                            <fieldset class="inline">
+                                <legend>
+                                    Is the session related to <a href="#">special collections</a>?
+                                </legend>
+                        
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="special-collections" value="Yes">
+                                    Yes
+                                </label>
+                                </div>
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="special-collections" value="No">
+                                    No
+                                </label>
+                                </div>
+                                <div class="multiple-choice">
+                                        <label>
+                                            <input type="radio" name="special-collections" value="NotSure" checked>
+                                            I am not sure
+                                        </label>
+                                </div>
+                            </fieldset>
+                        </br>
+                        <div style="width: 85%; height: 1px; background-color:gray"></div>
+                    </div>
+                </div>
+
+                <div class="container" id="course">
+                    <h3 class="heading-medium">Course Info</h3>
+                </br>
+
+                    <div class="form-group">
+                            <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
+                            <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli"/>
+                            <a href="#" style="margin-left: 10px">Search by name</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="term">Term</label>
+                        <select class="form-control form-control--auto-width" id="term" name="term">
+                        <option value="select">-- Select --</option>
+                        <option value="18Fall">2018 Fall</option>
+                        <option value="18Summer">2018 Summer</option>
+                        <option value="18Winter">2018 Winter</option>
+                        <option value="17Winter">2017 Fall</option>
+                        </select>
+                    </div>
+
+                    <table class="text" style="display:none">
+                            <thead>
+                              <tr>
+                                <th scope="col">Fee per group</th>
+                                <th class="numeric" scope="col">First 7 days</th>
+                                <th class="numeric" scope="col">After 7 days</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Undergraduate</th>
+                                <td class="numeric">$2.00</td>
+                                <td class="numeric">$4.00</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Graduate</th>
+                                <td class="numeric">$1.00</td>
+                                <td class="numeric">$2.00</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Faculty</th>
+                                <td class="numeric">$2.00</td>
+                                <td class="numeric">$4.00</td>
+                              </tr>
+                            </tbody>
+                    </table>
+
+                    <div class="form-group">
+                        <label class="form-label" for="courseTitle">Course Title</label>
+                        <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input class="form-control" id="subject" type="text" name="subject" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="courseNumber">Course Number</label>
+                        <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="sectionNumber">Section Number</label>
+                        <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="file-input" style="width:80%">Please attach your syllabus, assignments or other documents that can help us better understand your course.</label>
+                        <input type="file" id="file-input">
+                    </br>
+                        <a href="#" style="font-size: 0.8em">Add another attachment</a>
+                    </div>
+
+                    </br>
+                    <div style="width: 85%; height: 1px; background-color:gray"></div>
+         
+                </div>
+
+                <div class="container" id="session">
+                    <h3 class="heading-medium">Instruction Session Info</h3>
+                    </br>
+
+                    <div class="form-group">
+                            <label class="form-label" for="sessionTitle">Instruction Session Title</label>
+                            <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled/>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-label" for="participants">Number of Participants</label>
+                            <input class="form-control" id="participants" type="text" name="participants" />
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-label" for="preferredTime">Preferred Date & Time</label>
+                            <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:30% ; margin-right:5px" value="Wed, 2018-08-01" />
+                            <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15%" value="02:00 PM"/> -
+                            <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15% ; margin-right:8px" value="03:00 PM"/>
+                            1 hour
+                    </div>
+
+                    <div class="form-group">
+                            <fieldset>
+                                <legend>
+                                    Location
+                                </legend>
+                        
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="location" value="haveARoom">
+                                        I already have a room. 
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="location" value="needHelp">
+                                        I need help scheduling a room. 
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                        <label>
+                                            <input type="radio" name="location" value="noRoom">
+                                            No classroom yet, but I will schedule a room on my own. 
+                                        </label>
+                                    </div>
+                            </fieldset>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="textarea" style="width:80%">
+                                Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
+                                <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
+                        </label>
+                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="textarea" style="width:80%">
+                                Please describe any accomodation needed for anyone to fully participate the session.    
+                        </label>
+                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="textarea" style="width:80%">
+                                Additional information you want us to know. (Optional)       
+                        </label>
+                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <input class="button" type="submit" value="Submit" />
+                </div>
+
+            </form>
+        </main>
+    </div>
+
+</body>
+
+<script>
+    function toggleCourseSection(){
+        var nonCourse = document.querySelector("#nonCourse");
+        var courseSection = document.querySelector("#course");
+        if (nonCourse.checked){
+            courseSection.style.display = "none";
+        } else {
+            courseSection.style.display = "block";
+        }
+    }
+
+    function displayCourse(){
+        var uniqname = document.querySelector("#uniqname");
+        var term = document.querySelector("#term");
+
+    }
+
+</script>
+
+</html>
