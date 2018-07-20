@@ -32,6 +32,12 @@
     margin-bottom:30px;
 }
 
+#location-detail-specific, #location-detail-preferred{
+    display: none;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
 </style>
 
 <body>
@@ -242,15 +248,23 @@
                         
                                 <div class="multiple-choice">
                                     <label>
-                                        <input type="radio" name="location" value="haveARoom">
+                                        <input type="radio" name="location" value="haveARoom" id="haveRoom">
                                         I already have a room. 
                                     </label>
                                 </div>
+                                <div id="location-detail-specific">
+                                    <label class="form-label" for="specific-location">Please specify the location:</label>
+                                    <input class="form-control" id="specific-location" type="text" name="specific-location"/>
+                                </div>
                                 <div class="multiple-choice">
                                     <label>
-                                        <input type="radio" name="location" value="needHelp">
+                                        <input type="radio" name="location" value="needHelp" id="needHelp">
                                         I need help scheduling a room. 
                                     </label>
+                                </div>
+                                <div id="location-detail-preferred">
+                                    <label class="form-label" for="preferred-location">If you have preferred library classroom, please describe here:</label>
+                                    <input class="form-control" id="preferred-location" type="text" name="preferred-location"/>
                                 </div>
                                 <div class="multiple-choice">
                                         <label>
@@ -314,6 +328,8 @@
         var term = document.querySelector("#term");
         var courseSelection = document.querySelector("#course-selection");
         var courseNotFoundError = document.querySelector("#course-not-found-error");
+        var manual = document.querySelector("#manual");
+        var courseInput = document.querySelector("#course-input");
         if (uniqname.value === "sallyoli" && term.value === "2018 Fall"){
             courseSelection.style.display = "block";
             courseNotFoundError.style.display = "none";
@@ -321,6 +337,8 @@
             courseSelection.style.display = "none";
             courseNotFoundError.innerHTML = `Cannot find any course taught by ${uniqname.value} in ${term.value},  please manually enter couse information below. `; 
             courseNotFoundError.style.display = "block";
+            manual.checked = true;
+            courseInput.style.display = "block"
         }
     }
 
@@ -330,6 +348,7 @@
         var sessionTitle = document.querySelector("#sessionTitle");
         if (manual.checked){
             courseInput.style.display = "block";
+            sessionTitle.value = "";
         } else {
             courseInput.style.display = "none";
             sessionTitle.value = this.value;
@@ -339,17 +358,29 @@
     var courseRadios = document.getElementsByName('course');
     Array.from(courseRadios).forEach(function(radio){
         radio.addEventListener('click', hideCourseInput);
-
     })
 
+    function displayLocationDetail(){
+        var locationDetailSpecific = document.querySelector("#location-detail-specific");
+        var haveRoom = document.querySelector("#haveRoom");
+        var locationDetailPreferred = document.querySelector("#location-detail-preferred");
+        var needHelp = document.querySelector("#needHelp");
+        if (haveRoom.checked){
+            locationDetailSpecific.style.display = "block";
+            locationDetailPreferred.style.display = "none";
+        } else if (needHelp.checked) {
+            locationDetailSpecific.style.display = "none";
+            locationDetailPreferred.style.display = "block";
+        } else {
+            locationDetailSpecific.style.display = "none";
+            locationDetailPreferred.style.display = "none";
+        }
+    }
 
-        // if (manual.checked){
-        //     courseInput.style.display = "block";
-        // } else {
-        //     courseInput.style.display = "none";
-        //     sessionTitle.value = .value;
-        // }
-
+    var locationRadios = document.getElementsByName('location');
+    Array.from(locationRadios).forEach(function(radio){
+        radio.addEventListener('click', displayLocationDetail);
+    })
 
 </script>
 
