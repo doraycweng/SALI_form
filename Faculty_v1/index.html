@@ -134,41 +134,41 @@
                     </div>
 
                     <div class="form-group" id="course-selection">
-                    <table class="text" id="course-selection-table">
-                            <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
-                            <thead>
-                              <tr>
-                                <th scope="col"></th>
-                                <th scope="col" width= "20%">Subject</th>
-                                <th scope="col" width= "20%">Course#</th>
-                                <th scope="col" width= "20%">Section#</th>
-                                <th scope="col" width= "35%">Course Title</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td scope="row"><input type="radio" name="course" value="course1"></th>
-                                <td scope="row">SAC</td>
-                                <td scope="row">236</td>
-                                <td scope="row">001(LEC)</td>
-                                <td scope="row">Art of Film</td>
-                              </tr>
-                              <tr>
-                                <td scope="row"><input type="radio" name="course" value="course2"></th>
-                                <td scope="row">SAC</td>
-                                <td scope="row">236</td>
-                                <td scope="row">002(LAB)</td>
-                                <td scope="row">Art of Film</td>
-                              </tr>
-                              <tr>
-                                <td scope="row"><input type="radio" name="course" value="course3"></th>
-                                <td scope="row">SAC</td>
-                                <td scope="row">271</td>
-                                <td scope="row">201</td>
-                                <td scope="row">Classical Film Thry</td>
+                        <table class="text" id="course-selection-table">
+                                <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
+                                <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col" width= "20%">Subject</th>
+                                    <th scope="col" width= "20%">Course#</th>
+                                    <th scope="col" width= "20%">Section#</th>
+                                    <th scope="col" width= "35%">Course Title</th>
                                 </tr>
-                            </tbody>
-                    </table>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="row"><input type="radio" name="course" value="SAC 236 001(LEC) Art of Film" ></th>
+                                    <td scope="row">SAC</td>
+                                    <td scope="row">236</td>
+                                    <td scope="row">001(LEC)</td>
+                                    <td scope="row">Art of Film</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="radio" name="course" value="SAC 236 002(LAB) Art of Film" ></th>
+                                    <td scope="row">SAC</td>
+                                    <td scope="row">236</td>
+                                    <td scope="row">002(LAB)</td>
+                                    <td scope="row">Art of Film</td>
+                                </tr>
+                                <tr>
+                                    <td scope="row"><input type="radio" name="course" value="SAC 271 201 Classical Film Thry" ></th>
+                                    <td scope="row">SAC</td>
+                                    <td scope="row">271</td>
+                                    <td scope="row">201</td>
+                                    <td scope="row">Classical Film Thry</td>
+                                </tr>
+                                </tbody>
+                        </table>
 
                         <input type="radio" name="course" value="manual" id="manual" checked>
                         <label for="manual" style="margin:15px">Input course info manually</label> 
@@ -299,10 +299,13 @@
     function toggleCourseSection(){
         var nonCourse = document.querySelector("#nonCourse");
         var courseSection = document.querySelector("#course");
+        var sessionTitle = document.querySelector("#sessionTitle");
         if (nonCourse.checked){
             courseSection.style.display = "none";
+            sessionTitle.disabled = false;
         } else {
             courseSection.style.display = "block";
+            sessionTitle.disabled = true;
         }
     }
 
@@ -324,10 +327,29 @@
     function hideCourseInput(){
         var manual = document.querySelector("#manual");
         var courseInput = document.querySelector("#course-input");
+        var sessionTitle = document.querySelector("#sessionTitle");
         if (manual.checked){
-
+            courseInput.style.display = "block";
+        } else {
+            courseInput.style.display = "none";
+            sessionTitle.value = this.value;
         }
     }
+
+    var courseRadios = document.getElementsByName('course');
+    Array.from(courseRadios).forEach(function(radio){
+        radio.addEventListener('click', hideCourseInput);
+
+    })
+
+
+        // if (manual.checked){
+        //     courseInput.style.display = "block";
+        // } else {
+        //     courseInput.style.display = "none";
+        //     sessionTitle.value = .value;
+        // }
+
 
 </script>
 
