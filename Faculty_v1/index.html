@@ -12,6 +12,18 @@
 
 <style>
 
+.course-not-found-error{
+    display: none;
+    margin-bottom:30px;
+    width: 100%;
+    max-width:27em;
+    padding: .75rem 1.2rem;
+    background: #FCF1F3;
+    border: 1px solid #C53B26;
+    border-radius: 4px;
+    color: #C53B26; 
+} 
+
 </style>
 
 <body>
@@ -98,48 +110,66 @@
 
                     <div class="form-group">
                             <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
-                            <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli"/>
+                            <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli" onblur="displayCourse()"/>
                             <a href="#" style="margin-left: 10px">Search by name</a>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="term">Term</label>
-                        <select class="form-control form-control--auto-width" id="term" name="term">
-                        <option value="select">-- Select --</option>
-                        <option value="18Fall">2018 Fall</option>
-                        <option value="18Summer">2018 Summer</option>
-                        <option value="18Winter">2018 Winter</option>
-                        <option value="17Winter">2017 Fall</option>
+                        <select class="form-control form-control--auto-width" id="term" name="term" onchange="displayCourse()">
+                        <option value="" disabled selected >-- Select --</option>
+                        <option value="2018 Fall">2018 Fall</option>
+                        <option value="2018 Summer">2018 Summer</option>
+                        <option value="2018 Winter">2018 Winter</option>
+                        <option value="2017 Winter">2017 Fall</option>
                         </select>
                     </div>
 
-                    <table class="text" style="display:none">
+                    <div class="form-group" id="courseSelection" style="display:none ; margin-bottom:20px ">
+                    <table class="text">
+                            <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
                             <thead>
                               <tr>
-                                <th scope="col">Fee per group</th>
-                                <th class="numeric" scope="col">First 7 days</th>
-                                <th class="numeric" scope="col">After 7 days</th>
+                                <th scope="col"></th>
+                                <th scope="col" width= "20%">Subject</th>
+                                <th scope="col" width= "20%">Course#</th>
+                                <th scope="col" width= "20%">Section#</th>
+                                <th scope="col" width= "35%">Course Title</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <th scope="row">Undergraduate</th>
-                                <td class="numeric">$2.00</td>
-                                <td class="numeric">$4.00</td>
+                                <td scope="row"><input type="radio" name="course" value="course1"></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">001(LEC)</td>
+                                <td scope="row">Art of Film</td>
                               </tr>
                               <tr>
-                                <th scope="row">Graduate</th>
-                                <td class="numeric">$1.00</td>
-                                <td class="numeric">$2.00</td>
+                                <td scope="row"><input type="radio" name="course" value="course2"></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">002(LAB)</td>
+                                <td scope="row">Art of Film</td>
                               </tr>
                               <tr>
-                                <th scope="row">Faculty</th>
-                                <td class="numeric">$2.00</td>
-                                <td class="numeric">$4.00</td>
-                              </tr>
+                                <td scope="row"><input type="radio" name="course" value="course3"></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">271</td>
+                                <td scope="row">201</td>
+                                <td scope="row">Classical Film Thry</td>
+                                </tr>
                             </tbody>
                     </table>
 
+                        <input type="radio" name="course" value="manual" id="manual" checked>
+                        <label for="manual" style="margin:15px">Input course info manually</label> 
+                    </div>
+
+                    <div class="course-not-found-error" tabindex="-1" id="courseNotFoundError">
+                        
+                    </div>
+                  
                     <div class="form-group">
                         <label class="form-label" for="courseTitle">Course Title</label>
                         <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
@@ -269,7 +299,16 @@
     function displayCourse(){
         var uniqname = document.querySelector("#uniqname");
         var term = document.querySelector("#term");
-
+        var courseSelection = document.querySelector("#courseSelection");
+        var courseNotFoundError = document.querySelector("#courseNotFoundError");
+        if (uniqname.value === "sallyoli" && term.value === "2018 Fall"){
+            courseSelection.style.display = "block";
+            courseNotFoundError.style.display = "none";
+        } else {
+            courseSelection.style.display = "none";
+            courseNotFoundError.innerHTML = `Cannot find any course taught by ${uniqname.value} in ${term.value},  please manually enter couse information below. `; 
+            courseNotFoundError.style.display = "block";
+        }
     }
 
 </script>
