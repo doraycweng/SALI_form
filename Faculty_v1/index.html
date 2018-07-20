@@ -12,7 +12,7 @@
 
 <style>
 
-.course-not-found-error{
+#course-not-found-error{
     display: none;
     margin-bottom:30px;
     width: 100%;
@@ -23,6 +23,14 @@
     border-radius: 4px;
     color: #C53B26; 
 } 
+
+#course-selection{
+    display: none;
+}
+
+#course-selection-table{
+    margin-bottom:30px;
+}
 
 </style>
 
@@ -121,12 +129,12 @@
                         <option value="2018 Fall">2018 Fall</option>
                         <option value="2018 Summer">2018 Summer</option>
                         <option value="2018 Winter">2018 Winter</option>
-                        <option value="2017 Winter">2017 Fall</option>
+                        <option value="2017 Fall">2017 Fall</option>
                         </select>
                     </div>
 
-                    <div class="form-group" id="courseSelection" style="display:none ; margin-bottom:20px ">
-                    <table class="text">
+                    <div class="form-group" id="course-selection">
+                    <table class="text" id="course-selection-table">
                             <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
                             <thead>
                               <tr>
@@ -166,28 +174,30 @@
                         <label for="manual" style="margin:15px">Input course info manually</label> 
                     </div>
 
-                    <div class="course-not-found-error" tabindex="-1" id="courseNotFoundError">
+                    <div id="course-not-found-error">
                         
                     </div>
-                  
-                    <div class="form-group">
-                        <label class="form-label" for="courseTitle">Course Title</label>
-                        <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
-                    </div>
+                    
+                    <div id="course-input">
+                        <div class="form-group">
+                            <label class="form-label" for="courseTitle">Course Title</label>
+                            <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="subject">Subject</label>
-                        <input class="form-control" id="subject" type="text" name="subject" />
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject</label>
+                            <input class="form-control" id="subject" type="text" name="subject" />
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="courseNumber">Course Number</label>
-                        <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="courseNumber">Course Number</label>
+                            <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="sectionNumber">Section Number</label>
-                        <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
+                        <div class="form-group">
+                            <label class="form-label" for="sectionNumber">Section Number</label>
+                            <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -253,22 +263,22 @@
 
                     <div class="form-group">
                         <label class="form-label" for="textarea" style="width:80%">
-                                Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
-                                <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
+                            Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
+                            <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
                         </label>
                         <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="textarea" style="width:80%">
-                                Please describe any accomodation needed for anyone to fully participate the session.    
+                            Please describe any accomodation needed for anyone to fully participate the session.    
                         </label>
                         <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="textarea" style="width:80%">
-                                Additional information you want us to know. (Optional)       
+                            Additional information you want us to know. (Optional)       
                         </label>
                         <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
                     </div>
@@ -299,15 +309,23 @@
     function displayCourse(){
         var uniqname = document.querySelector("#uniqname");
         var term = document.querySelector("#term");
-        var courseSelection = document.querySelector("#courseSelection");
-        var courseNotFoundError = document.querySelector("#courseNotFoundError");
+        var courseSelection = document.querySelector("#course-selection");
+        var courseNotFoundError = document.querySelector("#course-not-found-error");
         if (uniqname.value === "sallyoli" && term.value === "2018 Fall"){
             courseSelection.style.display = "block";
             courseNotFoundError.style.display = "none";
-        } else {
+        } else if(uniqname.value !== "" && term.value !== ""){
             courseSelection.style.display = "none";
             courseNotFoundError.innerHTML = `Cannot find any course taught by ${uniqname.value} in ${term.value},  please manually enter couse information below. `; 
             courseNotFoundError.style.display = "block";
+        }
+    }
+
+    function hideCourseInput(){
+        var manual = document.querySelector("#manual");
+        var courseInput = document.querySelector("#course-input");
+        if (manual.checked){
+
         }
     }
 
