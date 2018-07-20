@@ -38,6 +38,10 @@
     margin-bottom: 20px;
 }
 
+#ttc-info{
+    display: none;
+}
+
 </style>
 
 <body>
@@ -223,13 +227,13 @@
                     </br>
 
                     <div class="form-group">
-                            <label class="form-label" for="sessionTitle">Instruction Session Title</label>
-                            <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled/>
+                        <label class="form-label" for="sessionTitle">Instruction Session Title</label>
+                        <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled/>
                     </div>
 
                     <div class="form-group">
-                            <label class="form-label" for="participants">Number of Participants</label>
-                            <input class="form-control" id="participants" type="text" name="participants" />
+                        <label class="form-label" for="participants">Number of Participants</label>
+                        <input class="form-control" id="participants" type="text" name="participants" />
                     </div>
 
                     <div class="form-group">
@@ -276,30 +280,186 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="textarea" style="width:80%">
+                        <label class="form-label" for="textarea1" style="width:80%">
                             Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
                             <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
                         </label>
-                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                        <textarea class="form-control"  id="textarea1" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="textarea" style="width:80%">
+                        <label class="form-label" for="textarea2" style="width:80%">
                             Please describe any accomodation needed for anyone to fully participate the session.    
                         </label>
-                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                        <textarea class="form-control" id="textarea2" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="textarea" style="width:80%">
+                        <label class="form-label" for="textarea3" style="width:80%">
                             Additional information you want us to know. (Optional)       
                         </label>
-                        <textarea class="form-control" name="textarea" id="textarea" rows="5"></textarea>
+                        <textarea class="form-control" id="textarea3" rows="5"></textarea>
+                    </div>
+
+                    </br>
+                    <div style="width: 85%; height: 1px; background-color:gray"></div>
+
+                </div>
+
+
+                <div class="container" id="scheduling">
+                    <h3 class="heading-medium">Internal Scheduling Info (for libraians and coordinators) </h3>
+                    </br>
+
+                    <div class="form-group">
+                            <label class="form-label" for="sessionType">Please select the session type.</label>
+                            <select class="form-control form-control--auto-width" id="sessionType" name="sessionType">
+                            <option value="" disabled selected >-- Select --</option>
+                            <option value="Curriculum-Related">Curriculum-Related</option>
+                            <option value="Campus Outreach Session">Campus Outreach Session</option>
+                            <option value="Open Workshops">Open Workshops</option>
+                            <option value="Community Session">Community Session</option>
+                            <option value="Credit-bearing University Course">Credit-bearing University Course</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="participants">Please add library Instructors who is going to teaching the session.</label>
+                        <a href="#">Add instructor</a>
+                    </div>
+
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>
+                                Please specify which evaluation is needed after the session.
+                            </legend>
+                    
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="noNeed">
+                                    Evaluation not needed 
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation1">
+                                    <a href="#">Qualtrics Intro Session Form</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation2">
+                                    <a href="#">Qualtrics Tech Session Form</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation3">
+                                    <a href="#">Qualtrics Advanced Session Form</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation4">
+                                    <a href="#">Qualtrics Consultation Form</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation5">
+                                    <a href="#">Qualtrics LPI Session Form</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation5">
+                                    <a href="#">Qualtrics Special Collections</a>
+                                </label>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="evaluation" value="evaluation5">
+                                    Custom Eval URL: 
+                                    <input class="form-control"  type="text"  style="width:50%;  height:1.5rem"/>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="form-group">
+                        <legend>
+                            Please specify if any registration is needed for the session.   
+                        </legend>
+                        </br>
+                        <fieldset class="inline" onchange="toggleCourseSection()">
+                            <legend>
+                                    Is the TTC (Teaching & Techonology Collabration) registration needed? 
+                            </legend>
+                    
+                            <div class="multiple-choice">
+                            <label>
+                                <input type="radio" id="TTC-required" name="TTC" value="Yes" onclick ="displayTTCinput()">
+                                Yes
+                            </label>
+                            </div>
+                            <div class="multiple-choice">
+                            <label>
+                                <input type="radio" id="TTC-not-required" name="TTC" value="No" onclick ="displayTTCinput()">
+                                No
+                            </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div id="ttc-info">
+                        <div class="form-group">
+                            <fieldset class="inline" onchange="toggleCourseSection()">
+                                <legend>
+                                    Is the session limited to undergrads only? 
+                                </legend>
+                        
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio"  name="undergraduate" value="Yes" >
+                                    Yes
+                                </label>
+                                </div>
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio"  name="undergraduate" value="No">
+                                    No
+                                </label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="textarea4" style="width:80%">
+                                Session Description (will be used in the TTC system) 
+                            </label>
+                            <textarea class="form-control"  id="textarea4" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="level">What is the level?</label>
+                            <select class="form-control form-control--auto-width" id="level" name="level">
+                            <option value="" disabled selected >-- Select --</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="All">All</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="tags">Tags(Optional)</label>
+                            <input class="form-control" id="tags" type="text" name="tags" />
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="form-group">
+                    </br>
                     <input class="button" type="submit" value="Submit" />
                 </div>
 
@@ -381,6 +541,17 @@
     Array.from(locationRadios).forEach(function(radio){
         radio.addEventListener('click', displayLocationDetail);
     })
+
+    function displayTTCinput(){
+        var ttcRequired = document.querySelector("#TTC-required");
+        var ttcInfo = document.querySelector("#ttc-info");
+    
+        if(ttcRequired.checked){
+            ttcInfo.style.display = "block";
+        } else {
+            ttcInfo.style.display = "none";
+        }
+    }
 
 </script>
 
