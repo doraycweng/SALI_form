@@ -8,37 +8,38 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
 
     <title>SALI Request Form</title>
+
+
+    <style>
+
+        #course-not-found-error{
+            display: none;
+            margin-bottom:30px;
+            width: 100%;
+            max-width:27em;
+            padding: .75rem 1.2rem;
+            background: #FCF1F3;
+            border: 1px solid #C53B26;
+            border-radius: 4px;
+            color: #C53B26; 
+        } 
+
+        #course-selection{
+            display: none;
+        }
+
+        #course-selection-table{
+            margin-bottom:30px;
+        }
+
+        #location-detail-specific, #location-detail-preferred{
+            display: none;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
-
-<style>
-
-#course-not-found-error{
-    display: none;
-    margin-bottom:30px;
-    width: 100%;
-    max-width:27em;
-    padding: .75rem 1.2rem;
-    background: #FCF1F3;
-    border: 1px solid #C53B26;
-    border-radius: 4px;
-    color: #C53B26; 
-} 
-
-#course-selection{
-    display: none;
-}
-
-#course-selection-table{
-    margin-bottom:30px;
-}
-
-#location-detail-specific, #location-detail-preferred{
-    display: none;
-    margin-left: 30px;
-    margin-bottom: 20px;
-}
-
-</style>
 
 <body>
     <header class="site-header">
@@ -187,7 +188,7 @@
                     <div id="course-input">
                         <div class="form-group">
                             <label class="form-label" for="courseTitle">Course Title</label>
-                            <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
+                            <input class="form-control" id="courseTitle" type="text" name="courseTitle"/>
                         </div>
 
                         <div class="form-group">
@@ -224,7 +225,7 @@
 
                     <div class="form-group">
                             <label class="form-label" for="sessionTitle">Instruction Session Title</label>
-                            <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled/>
+                            <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled  style="opacity: 0.2"/>
                     </div>
 
                     <div class="form-group">
@@ -267,18 +268,18 @@
                                     <input class="form-control" id="preferred-location" type="text" name="preferred-location"/>
                                 </div>
                                 <div class="multiple-choice">
-                                        <label>
-                                            <input type="radio" name="location" value="noRoom">
-                                            No classroom yet, but I will schedule a room on my own. 
-                                        </label>
-                                    </div>
+                                    <label>
+                                        <input type="radio" name="location" value="noRoom">
+                                        No classroom yet, but I will schedule a room on my own. 
+                                    </label>
+                                </div>
                             </fieldset>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="textarea1" style="width:80%">
                             Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
-                            <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
+                            <br /><span class="form-hint font-xsmall text">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
                         </label>
                         <textarea class="form-control" id="textarea1" rows="5"></textarea>
                     </div>
@@ -317,9 +318,11 @@
         if (nonCourse.checked){
             courseSection.style.display = "none";
             sessionTitle.disabled = false;
+            sessionTitle.style.opacity = 1;
         } else {
             courseSection.style.display = "block";
             sessionTitle.disabled = true;
+            sessionTitle.style.opacity = 0.2;
         }
     }
 
