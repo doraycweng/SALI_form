@@ -228,7 +228,7 @@
 
                     <div class="form-group">
                         <label class="form-label" for="sessionTitle">Instruction Session Title</label>
-                        <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"   disabled/>
+                        <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"  disabled style="opacity: 0.2"/>
                     </div>
 
                     <div class="form-group">
@@ -312,10 +312,10 @@
                     </br>
 
                     <div class="form-group">
-                        <ul>
+                        <ul class="list list-bullet text">
                             <li><label class="form-label" for="sessionType">Please select the session type.</label></li>
-                        </ul>
-                            <select class="form-control form-control--auto-width" id="sessionType" name="sessionType">
+
+                            <select class="form-control form-control--auto-width" id="sessionType" name="sessionType" >
                             <option value="" disabled selected >-- Select --</option>
                             <option value="Curriculum-Related">Curriculum-Related</option>
                             <option value="Campus Outreach Session">Campus Outreach Session</option>
@@ -323,77 +323,81 @@
                             <option value="Community Session">Community Session</option>
                             <option value="Credit-bearing University Course">Credit-bearing University Course</option>
                             </select>
+                        </ul>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="participants">Please add library Instructors who is going to teaching the session.</label>
+                        <ul class="list list-bullet text">
+                        <li><label class="form-label" for="participants">Please add library Instructors who is going to teaching the session.</label></li>
                         <a href="#">Add instructor</a>
+                        </ul>
                     </div>
 
                     <div class="form-group">
                         <fieldset>
-                            <legend>
-                                Please specify which evaluation is needed after the session.
-                            </legend>
-                    
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="noNeed">
-                                    Evaluation not needed 
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation1">
-                                    <a href="#">Qualtrics Intro Session Form</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation2">
-                                    <a href="#">Qualtrics Tech Session Form</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation3">
-                                    <a href="#">Qualtrics Advanced Session Form</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation4">
-                                    <a href="#">Qualtrics Consultation Form</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation5">
-                                    <a href="#">Qualtrics LPI Session Form</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation5">
-                                    <a href="#">Qualtrics Special Collections</a>
-                                </label>
-                            </div>
-                            <div class="multiple-choice">
-                                <label>
-                                    <input type="radio" name="evaluation" value="evaluation5">
-                                    Custom Eval URL: 
-                                    <input class="form-control"  type="text"  style="width:50%;  height:1.5rem"/>
-                                </label>
-                            </div>
+                            <ul class="list list-bullet text">
+                                <li>Please specify which evaluation is needed after the session.</li>
+                                    
+                                <div class="multiple-choice" >
+                                    <label>
+                                        <input type="radio" name="evaluation" value="noNeed">
+                                        Evaluation not needed 
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation1">
+                                        <a href="#">Qualtrics Intro Session Form</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation2">
+                                        <a href="#">Qualtrics Tech Session Form</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation3">
+                                        <a href="#">Qualtrics Advanced Session Form</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation4">
+                                        <a href="#">Qualtrics Consultation Form</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation5">
+                                        <a href="#">Qualtrics LPI Session Form</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation5">
+                                        <a href="#">Qualtrics Special Collections</a>
+                                    </label>
+                                </div>
+                                <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="evaluation" value="evaluation5">
+                                        Custom Eval URL: 
+                                        <input class="form-control"  type="text"  style="width:50%;  height:1.5rem"/>
+                                    </label>
+                                </div>
+                            </ul>
                         </fieldset>
                     </div>
 
                     <div class="form-group">
-                        <legend>
+                        <ul class="list list-bullet text">
+                        <li><legend>
                             Please specify if any registration is needed for the session.   
-                        </legend>
-                        </br>
-                        <fieldset class="inline" onchange="toggleCourseSection()">
+                        </legend></li>
+                        </ul>
+                        <fieldset class="inline" style= "margin-left:20px" onchange="toggleCourseSection()">
                             <legend>
                                     Is the TTC (Teaching & Techonology Collabration) registration needed? 
                             </legend>
@@ -413,7 +417,7 @@
                         </fieldset>
                     </div>
 
-                    <div id="ttc-info">
+                    <div id="ttc-info" style= "margin-left:20px">
                         <div class="form-group">
                             <fieldset class="inline" onchange="toggleCourseSection()">
                                 <legend>
@@ -460,8 +464,8 @@
 
                 </div>
 
+                </br>
                 <div class="form-group">
-                    </br>
                     <input class="button" type="submit" value="Submit" />
                 </div>
 
@@ -479,9 +483,11 @@
         if (nonCourse.checked){
             courseSection.style.display = "none";
             sessionTitle.disabled = false;
+            sessionTitle.style.opacity = 1;
         } else {
             courseSection.style.display = "block";
             sessionTitle.disabled = true;
+            sessionTitle.style.opacity = 0.2;
         }
     }
 
