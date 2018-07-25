@@ -8,41 +8,108 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
 
     <title>SALI Request Form</title>
+
+    <style>
+
+        #course-not-found-error{
+            display: none;
+            margin-bottom:30px;
+            width: 100%;
+            max-width:27em;
+            padding: .75rem 1.2rem;
+            background: #FCF1F3;
+            border: 1px solid #C53B26;
+            border-radius: 4px;
+            color: #C53B26; 
+        } 
+        
+        #course-selection{
+            display: none;
+        }
+        
+        #course-selection-table{
+            margin-bottom:30px;
+        }
+        
+        /* #course-input {
+            display: none;
+        } */
+        
+        #location-detail-specific, #location-detail-preferred{
+            display: none;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        #ttc-info{
+            display: none;
+        }
+
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 150px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.7); 
+        }
+
+        .modal-content {
+            background-color: #F2F9FF;
+            margin: auto;
+            padding: 20px;
+            border: 1.5px solid #126DC1;
+            border-radius: 6px;
+            width: 40%;
+            text-align: center;
+            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .close {
+            color: #6E6E6E;
+            float: right;
+            text-decoration:underline;
+            cursor:pointer;
+            font-size: 17px;
+        }
+
+        .svg-icon {
+            width: 3.5em;
+            height: 3.5em;
+            
+        }
+
+        .svg-icon path,
+        .svg-icon polygon,
+        .svg-icon rect {
+            fill: #126DC1;
+        }
+
+        .svg-icon circle {
+            stroke: #126DC1;
+            stroke-width: 1;
+        }
+
+        .submit-message{
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .copy {
+            color: #126DC1;
+            text-decoration:underline;
+            cursor: pointer;
+        }
+        
+    </style>
 </head>
 
-<style>
-
-#course-not-found-error{
-    display: none;
-    margin-bottom:30px;
-    width: 100%;
-    max-width:27em;
-    padding: .75rem 1.2rem;
-    background: #FCF1F3;
-    border: 1px solid #C53B26;
-    border-radius: 4px;
-    color: #C53B26; 
-} 
-
-#course-selection{
-    display: none;
-}
-
-#course-selection-table{
-    margin-bottom:30px;
-}
-
-#location-detail-specific, #location-detail-preferred{
-    display: none;
-    margin-left: 30px;
-    margin-bottom: 20px;
-}
-
-#ttc-info{
-    display: none;
-}
-
-</style>
 
 <body>
     <header class="site-header">
@@ -56,18 +123,12 @@
     <div class="container">
         <h2 class="heading-large">Request a Library Instruction Session</h2>
         <main class="container">
-            <form>
                 <div class="container" id="contact">
                     <h3 class="heading-medium">Contact Info / Purpose</h3>
                 </br>
 
                     <div class="form-group">
-                            <label class="form-label" for="contact-person">Contact Person</label>
-                            <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
-                    </div>
-
-                    <div class="form-group">
-                            <label class="form-label" for="contact-email">Contact Email</label>
+                            <label class="form-label" for="contact-email">Who should we contact if there are questions about this request?</label>
                             <input class="form-control" id="contact-email" type="email" name="contact-email" value="sallOli@umich.edu"/>
                     </div>
 
@@ -180,7 +241,7 @@
                                 </tbody>
                         </table>
 
-                        <input type="radio" name="course" value="manual" id="manual" checked>
+                        <input type="radio" name="course" value="manual" id="manual">
                         <label for="manual" style="margin:15px">Input course info manually</label> 
                     </div>
 
@@ -191,7 +252,7 @@
                     <div id="course-input">
                         <div class="form-group">
                             <label class="form-label" for="courseTitle">Course Title</label>
-                            <input class="form-control" id="courseTitle" type="text" name="courseTitle" />
+                            <input class="form-control" id="courseTitle" type="text" name="courseTitle" required/>
                         </div>
 
                         <div class="form-group">
@@ -211,7 +272,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="file-input" style="width:80%">Please attach your syllabus, assignments or other documents that can help us better understand your course.</label>
+                        <label class="form-label" for="file-input" style="width:80%">Please attach the syllabus, assignments or other documents that can help us better understand your course.</label>
                         <input type="file" id="file-input">
                     </br>
                         <a href="#" style="font-size: 0.8em">Add another attachment</a>
@@ -228,7 +289,7 @@
 
                     <div class="form-group">
                         <label class="form-label" for="sessionTitle">Instruction Session Title</label>
-                        <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"  disabled style="opacity: 0.5"/>
+                        <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"  disabled style="opacity: 0.4"/>
                     </div>
 
                     <div class="form-group">
@@ -244,7 +305,7 @@
                             1 hour
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="location-input">
                             <fieldset>
                                 <legend>
                                     Location
@@ -253,7 +314,7 @@
                                 <div class="multiple-choice">
                                     <label>
                                         <input type="radio" name="location" value="haveARoom" id="haveRoom">
-                                        I already have a room. 
+                                        Use regular classroom. 
                                     </label>
                                 </div>
                                 <div id="location-detail-specific">
@@ -263,7 +324,7 @@
                                 <div class="multiple-choice">
                                     <label>
                                         <input type="radio" name="location" value="needHelp" id="needHelp">
-                                        I need help scheduling a library classroom. 
+                                        Need help scheduling a library classroom. 
                                     </label>
                                 </div>
                                 <div id="location-detail-preferred">
@@ -281,22 +342,15 @@
 
                     <div class="form-group">
                         <label class="form-label" for="textarea1" style="width:80%">
-                            Please describe the topics (e.g. concepts, skills) you would like to be covered within the session timeframe.
+                            Please describe the topics (e.g. concepts, skills) you'd like to be covered in the session and any additional information you want us to know.
                             <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
                         </label>
                         <textarea class="form-control"  id="textarea1" rows="5"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="textarea2" style="width:80%">
-                            Please describe any accomodation needed for anyone to fully participate the session.    
-                        </label>
-                        <textarea class="form-control" id="textarea2" rows="5"></textarea>
-                    </div>
-
-                    <div class="form-group">
                         <label class="form-label" for="textarea3" style="width:80%">
-                            Additional information you want us to know. (Optional)       
+                            Please describe any accomodation needed for anyone to fully participate the session.        
                         </label>
                         <textarea class="form-control" id="textarea3" rows="5"></textarea>
                     </div>
@@ -446,7 +500,7 @@
                             <textarea class="form-control"  id="textarea4" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="level">What is the level?</label>
+                            <label class="form-label" for="level">Level</label>
                             <select class="form-control form-control--auto-width" id="level" name="level">
                             <option value="" disabled selected >-- Select --</option>
                             <option value="Beginner">Beginner</option>
@@ -465,12 +519,24 @@
                 </div>
 
                 </br>
-                <div class="form-group">
-                    <input class="button" type="submit" value="Submit" />
+                <div class="container form-group">
+                    <button class="button" onclick="displaySubmitDialog()">Submit</button>
                 </div>
-
-            </form>
         </main>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSubmitDialog()">close</span>
+            <svg class="svg-icon" viewBox="0 0 20 20">
+                    <path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"></path>
+            </svg>
+            <h3 class="submit-message">Thank you for submitting the request!</h3>
+            <h3 class="submit-message">We will be in touch soon.</h3>
+            </br>
+            <p style="margin-bottom: 0">Want to make a new request similar to this one?</p>
+            <p class="copy" onclick="closeSubmitDialog()">Make a copy</p>
+        </div>   
     </div>
 
 </body>
@@ -480,14 +546,17 @@
         var nonCourse = document.querySelector("#nonCourse");
         var courseSection = document.querySelector("#course");
         var sessionTitle = document.querySelector("#sessionTitle");
+        var locationInput = document.querySelector("#location-input");
         if (nonCourse.checked){
             courseSection.style.display = "none";
             sessionTitle.disabled = false;
             sessionTitle.style.opacity = 1;
+            locationInput.style.display = "none";
         } else {
             courseSection.style.display = "block";
             sessionTitle.disabled = true;
-            sessionTitle.style.opacity = 0.5;
+            sessionTitle.style.opacity = 0.4;
+            locationInput.style.display = "block";
         }
     }
 
@@ -559,6 +628,18 @@
         } else {
             ttcInfo.style.display = "none";
         }
+    }
+
+    function displaySubmitDialog(){
+        var modal = document.querySelector(".modal");
+        modal.style.display = "block";
+    }
+
+    function closeSubmitDialog(){
+        var closeButton = document.querySelector(".close");
+        var copyButton = document.querySelector(".copy");
+        var modal = document.querySelector(".modal");
+        modal.style.display = "none";
     }
 
 </script>
