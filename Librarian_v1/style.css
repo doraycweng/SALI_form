@@ -1,3 +1,7 @@
+#contact, #course, #session, #scheduling{
+    margin-bottom: 75px;
+}
+
 #course-not-found-error{
     display: none;
     margin-bottom:30px;
@@ -83,7 +87,7 @@
     stroke-width: 1;
 }
 
-.submit-message{
+h3{
     font-size: 26px;
     font-weight: 600;
 }
@@ -92,4 +96,12 @@
     color: #126DC1;
     text-decoration:underline;
     cursor: pointer;
+}
+
+.divider {
+    width: 85%; 
+    height: 1px; 
+    background-color:gray; 
+    margin-top: 3px; 
+    margin-bottom: 35px
 }

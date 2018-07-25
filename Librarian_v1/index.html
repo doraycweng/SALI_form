@@ -21,11 +21,11 @@
 
     <div class="container">
         <h2 class="heading-large">Request a Library Instruction Session</h2>
+    </br>
         <main class="container">
                 <div class="container" id="contact">
-                    <h3 class="heading-medium">Contact Info / Purpose</h3>
-                </br>
-
+                    <h3>Contact Info/Purpose</h3>
+                    <div class="divider"></div>
                     <div class="form-group">
                             <label class="form-label" for="contact-person">Who should we contact for the request?</label>
                             <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
@@ -82,14 +82,12 @@
                                         </label>
                                 </div>
                             </fieldset>
-                        </br>
-                        <div style="width: 85%; height: 1px; background-color:gray"></div>
                     </div>
                 </div>
 
                 <div class="container" id="course">
-                    <h3 class="heading-medium">Course Info</h3>
-                </br>
+                    <h3>Course Info</h3>
+                    <div class="divider"></div>
 
                     <div class="form-group">
                             <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
@@ -180,25 +178,16 @@
                         <input type="file" id="file-input">
                     </br>
                         <a href="#" style="font-size: 0.8em">Add another attachment</a>
-                    </div>
-
-                    </br>
-                    <div style="width: 85%; height: 1px; background-color:gray"></div>
-         
+                    </div>     
                 </div>
 
                 <div class="container" id="session">
-                    <h3 class="heading-medium">Instruction Session Info</h3>
-                    </br>
+                    <h3>Instruction Session Info</h3>
+                    <div class="divider"></div>
 
                     <div class="form-group">
                         <label class="form-label" for="sessionTitle">Instruction Session Title</label>
                         <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"  disabled style="opacity: 0.4"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="participants">Number of Participants</label>
-                        <input class="form-control" id="participants" type="text" name="participants" />
                     </div>
 
                     <div class="form-group">
@@ -207,6 +196,11 @@
                             <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15%" value="02:00 PM"/> -
                             <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15% ; margin-right:8px" value="03:00 PM"/>
                             1 hour
+                    </div>
+
+                    <div class="form-group">
+                            <label class="form-label" for="participants">Number of Participants</label>
+                            <input class="form-control" id="participants" type="text" name="participants" />
                     </div>
 
                     <div class="form-group" id="location-input">
@@ -218,7 +212,7 @@
                                 <div class="multiple-choice">
                                     <label>
                                         <input type="radio" name="location" value="haveARoom" id="haveRoom">
-                                        Use regular classroom. 
+                                        Use the regular classroom. 
                                     </label>
                                 </div>
                                 <div id="location-detail-specific">
@@ -228,7 +222,7 @@
                                 <div class="multiple-choice">
                                     <label>
                                         <input type="radio" name="location" value="needHelp" id="needHelp">
-                                        Need help scheduling a library classroom. 
+                                        No classroom yet, please schedule a library classroom. 
                                     </label>
                                 </div>
                                 <div id="location-detail-preferred">
@@ -258,16 +252,12 @@
                         </label>
                         <textarea class="form-control" id="textarea3" rows="5"></textarea>
                     </div>
-
-                    </br>
-                    <div style="width: 85%; height: 1px; background-color:gray"></div>
-
                 </div>
 
 
                 <div class="container" id="scheduling">
-                    <h3 class="heading-medium">Internal Scheduling Info (for libraians and coordinators) </h3>
-                    </br>
+                    <h3>Internal Scheduling Info</h3>
+                    <div class="divider"></div>
 
                     <div class="form-group">
                         <ul class="list list-bullet text">
@@ -422,7 +412,6 @@
 
                 </div>
 
-                </br>
                 <div class="container form-group">
                     <button class="button" onclick="displaySubmitDialog()">Submit</button>
                 </div>
