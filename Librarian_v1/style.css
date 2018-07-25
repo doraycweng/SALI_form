@@ -36,7 +36,6 @@
     display: none;
 }
 
-
 .modal {
     display: none; 
     position: fixed; 
@@ -105,3 +104,4 @@ h3{
     margin-top: 3px; 
     margin-bottom: 35px
 }
+
