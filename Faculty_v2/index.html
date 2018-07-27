@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/mlib-styles@^0/dist/mlib-styles.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+    <title>SALI Reqest Form</title>
+
+</head>
+
+<body>
+    <header class="site-header">
+            <div class="container container--full site-header-container">
+                <div class="site-title-container">
+                    <a href="#" class="site-link site-title-flex"><img class="site-logo" src="https://mlibrary.github.io/design-system/img/umich_block_m.png" alt="University of Michigan"><span class="site-title">Library</span></a>
+                </div>
+            </div>
+    </header>
+
+
+    <div class="container">
+        
+        <div class="progress-bar" id="3-steps">
+            <div class="step step-3">1</div>
+            <div class="step step-3">2</div>
+            <div class="step step-3">3</div>
+        </div>
+        <div id="contact">
+            <h2 class="heading-large">Hi, Sally Oliver</h2>
+            <p class="lede text" >We want to help guide you through your library instruction request. Let’s start by gathering your contact information and what kind of session will work best for your needs.</p>
+            </br> 
+                <div class="container">
+                    <main class="container">
+                        <div class="form-group">
+                                <label class="form-label" for="contact-person">Contact Person</label>
+                                <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
+                        </div>
+
+                        <div class="form-group">
+                                <label class="form-label" for="contact-email">Contact Email</label>
+                                <input class="form-control" id="contact-email" type="email" name="contact-email" value="sallOli@umich.edu"/>
+                        </div>
+
+                        <div class="form-group">
+                            <fieldset class="inline" onchange="toggleCourseSection()">
+                                <legend>
+                                    Is the session for a UofM course?
+                                </legend>
+                        
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="course-related" value="Yes" checked>
+                                    Yes
+                                </label>
+                                </div>
+                                <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" id="nonCourse" name="course-related" value="No">
+                                    No
+                                </label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="form-group">
+                                <fieldset class="inline">
+                                    <legend>
+                                        Is the session related to <a href="#">special collections</a>?
+                                    </legend>
+                            
+                                    <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="special-collections" value="Yes">
+                                        Yes
+                                    </label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="special-collections" value="No">
+                                        No
+                                    </label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                            <label>
+                                                <input type="radio" name="special-collections" value="NotSure" checked>
+                                                I am not sure
+                                            </label>
+                                    </div>
+                                </fieldset>
+                        </div>
+                    </div>
+
+                <div class="container button-section">
+                    <button class="button next-btn" onclick="moveToStep2()">
+                        Next
+                        <div class="icon">
+                            <svg class="svg-icon" viewBox="0 0 17 17">
+                                <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                                l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                                c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                                c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                                S1.293,9.212,1.729,9.212z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </main>
+        </div>
+
+        <div class="container" id="course">
+            </br>
+            </br>
+            <p class="lede text" >Tell us more about your course. Start by entering the Uniqname of the Faculty/GSI intructor and term of the course, then select or enter the course and section you want to participate. </p>
+            <p class="form-hint" style="width: 80%">* If you’d like to request multiple sections complete and submit this form and you’ll have the option to copy the instruction request for additional courses/sections. </p>
+            </br>
+            <div class="container">
+                <div class="form-group">
+                        <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
+                        <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli" onblur="displayCourse()"/>
+                        <a href="#" style="margin-left: 10px">Search by name</a>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="term">Term</label>
+                    <select class="form-control form-control--auto-width" id="term" name="term" onchange="displayCourse()">
+                    <option value="" disabled selected >-- Select --</option>
+                    <option value="2018 Fall">2018 Fall</option>
+                    <option value="2018 Summer">2018 Summer</option>
+                    <option value="2018 Winter">2018 Winter</option>
+                    <option value="2017 Fall">2017 Fall</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="course-selection">
+                    <table class="text" id="course-selection-table">
+                            <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" width= "20%">Subject</th>
+                                <th scope="col" width= "20%">Course#</th>
+                                <th scope="col" width= "20%">Section#</th>
+                                <th scope="col" width= "35%">Course Title</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 236 001(LEC) Art of Film" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">001(LEC)</td>
+                                <td scope="row">Art of Film</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 236 002(LAB) Art of Film" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">002(LAB)</td>
+                                <td scope="row">Art of Film</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 271 201 Classical Film Thry" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">271</td>
+                                <td scope="row">201</td>
+                                <td scope="row">Classical Film Thry</td>
+                            </tr>
+                            </tbody>
+                    </table>
+
+                    <input type="radio" name="course" value="manual" id="manual">
+                    <label for="manual" style="margin:15px">Input course info manually</label> 
+                </div>
+
+                <div id="course-not-found-error">
+                    
+                </div>
+                
+                <div id="course-input">
+                    <div class="form-group">
+                        <label class="form-label" for="courseTitle">Course Title</label>
+                        <input class="form-control" id="courseTitle" type="text" name="courseTitle" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input class="form-control" id="subject" type="text" name="subject" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="courseNumber">Course Number</label>
+                        <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="sectionNumber">Section Number</label>
+                        <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="file-input" style="width:80%">Please attach the syllabus, assignments or other documents that can help us better understand your course.</label>
+                    <input type="file" id="file-input">
+                </br>
+                    <a href="#" style="font-size: 0.8em">Add another attachment</a>
+                </div> 
+                
+                <div class="container button-section">
+                    <button class="button previous-btn" onclick="backToStep1()">
+                        <div class="icon">
+                            <svg class="svg-icon svg-icon-blue" viewBox="0 0 17 17">
+                                <path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
+                                L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
+                                c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
+                                c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
+                                S18.707,9.212,18.271,9.212z"></path>
+                            </svg>
+                            Previous
+                        </div>
+                    </button>
+                    <button class="button next-btn" onclick="moveToStep3()">
+                        Next
+                        <div class="icon">
+                            <svg class="svg-icon" viewBox="0 0 17 17">
+                                <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                                l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                                c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                                c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                                S1.293,9.212,1.729,9.212z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="session">
+            </br>
+            </br>
+            <ul class="list list-bullet">
+            <li><p class="lede text" >Please share your preferred date, time, location and number of participants for your requested library instruction session. </p></li>
+            </ul>
+            </br>
+            <div style="margin-left:15px"> 
+                <div class="form-group">
+                    <label class="form-label" for="sessionTitle">Instruction Session Title</label>
+                    <input class="form-control" id="sessionTitle" type="text" name="sessionTitle"  disabled style="opacity: 0.4"/>
+                </div>
+
+                <div class="form-group">
+                        <label class="form-label" for="preferredTime">Preferred Date & Time</label>
+                        <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:30% ; margin-right:5px" value="Wed, 2018-08-01" />
+                        <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15%" value="02:00 PM"/> -
+                        <input class="form-control" id="preferredTime" type="text" name="preferredTime" style="width:15% ; margin-right:8px" value="03:00 PM"/>
+                        1 hour
+                </div>
+
+                <div class="form-group">
+                        <label class="form-label" for="participants">Number of Participants</label>
+                        <input class="form-control" id="participants" type="text" name="participants" />
+                </div>
+
+                <div class="form-group" id="location-input">
+                        <fieldset>
+                            <legend>
+                                Location
+                            </legend>
+                    
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="location" value="haveARoom" id="haveRoom">
+                                    Use the regular classroom. 
+                                </label>
+                            </div>
+                            <div id="location-detail-specific">
+                                <label class="form-label" for="specific-location">Please specify the location:</label>
+                                <input class="form-control" id="specific-location" type="text" name="specific-location"/>
+                            </div>
+                            <div class="multiple-choice">
+                                <label>
+                                    <input type="radio" name="location" value="needHelp" id="needHelp">
+                                    No classroom yet, please schedule a library classroom. 
+                                </label>
+                            </div>
+                            <div id="location-detail-preferred">
+                                <label class="form-label" for="preferred-location">If you have preferred library classroom, please describe here:</label>
+                                <input class="form-control" id="preferred-location" type="text" name="preferred-location"/>
+                            </div>
+                            <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="location" value="noRoom">
+                                        No classroom yet, but I will schedule a room on my own. 
+                                    </label>
+                                </div>
+                        </fieldset>
+                </div>
+            </div>
+
+            </br>
+            </br>
+
+            <ul class="list list-bullet">
+                <li><p class="lede text" >Tell us about the key topic that would be most valuable for students and share any other details that would help us improve student learning outcomes. </p></li>
+            </ul>
+            </br>
+            <div style="margin-left:15px">
+                <div class="form-group">
+                    <label class="form-label" for="textarea1" style="width:80%">
+                        Please describe the topics (e.g. concepts, skills) you'd like to be covered in the session and any additional information you want us to know.
+                        <br /><span class="form-hint" style="font-size: 0.8em">*The <a href="#">example page</a> can help you estimate the time required for each topic. </span>
+                    </label>
+                    <textarea class="form-control"  id="textarea1" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="textarea3" style="width:80%">
+                        Please describe any accomodation needed for anyone to fully participate the session.        
+                    </label>
+                    <textarea class="form-control" id="textarea3" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="container button-section">
+                <button class="button previous-btn" onclick="backToStep2()">
+                    <div class="icon">
+                        <svg class="svg-icon svg-icon-blue" viewBox="0 0 17 17">
+                            <path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
+                            L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
+                            c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
+                            c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
+                            S18.707,9.212,18.271,9.212z"></path>
+                        </svg>
+                        Previous
+                    </div>
+                </button>
+                <button class="button submit-btn" onclick="displaySubmitDialog()">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSubmitDialog()">close</span>
+            <svg class="svg-icon-submit" viewBox="0 0 20 20">
+                <path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"></path>
+            </svg>
+            <h3 class="submit-message">Thank you for submitting the request!</h3>
+            <h3 class="submit-message">We will be in touch soon.</h3>
+            </br>
+            <p style="margin-bottom: 0">Want to make a new request similar to this one?</p>
+            <p class="copy" onclick="closeSubmitDialog()">Make a copy</p>
+        </div>   
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
