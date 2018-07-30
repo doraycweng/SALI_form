@@ -139,6 +139,10 @@
     color: #126DC1;
 }
 
+.previous-btn:hover .svg-icon path{
+    fill: white;
+}
+
 .submit-btn {
     position: absolute;
     left: 30%;
