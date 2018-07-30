@@ -26,213 +26,224 @@
 
     <div class="container">
         
-        <div class="progress-bar" id="4-steps">
+        <div class="progress-bar" id="steps-4">
             <div class="step step-4">1</div>
             <div class="step step-4">2</div>
             <div class="step step-4">3</div>
             <div class="step step-4">4</div>
         </div>
+
+        <div class="progress-bar" id="steps-3">
+            <div class="step step-3">1</div>
+            <div class="step step-3">2</div>
+            <div class="step step-3">3</div>
+        </div>
+
         <div id="contact">
             <h2 class="heading-large">Hi, Sally Oliver</h2>
             <p class="lede text" >as a library instructor,  please let us know who and how we should contact for the request.</p>
-                <div class="container">
-                    </br> 
-                    <div class="form-group">
-                            <label class="form-label" for="contact-person">Contact Person</label>
-                            <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
-                    </div>
+                <main class="container">
+                    <div class="container">
+                        </br> 
+                        <div class="form-group">
+                                <label class="form-label" for="contact-person">Contact Person</label>
+                                <input class="form-control" id="contact-person" type="text" name="contact-person" value="Sally Oliver"/>
+                        </div>
 
-                    <div class="form-group">
-                            <label class="form-label" for="contact-email">Contact Email</label>
-                            <input class="form-control" id="contact-email" type="email" name="contact-email" value="sallOli@umich.edu"/>
-                    </div>
+                        <div class="form-group">
+                                <label class="form-label" for="contact-email">Contact Email</label>
+                                <input class="form-control" id="contact-email" type="email" name="contact-email" value="sallOli@umich.edu"/>
+                        </div>
 
-                    <div class="form-group">
-                        <fieldset class="inline" onchange="toggleCourseSection()">
-                            <legend>
-                                Is the session for a UofM course?
-                            </legend>
-                    
-                            <div class="multiple-choice">
-                            <label>
-                                <input type="radio" name="course-related" value="Yes" checked>
-                                Yes
-                            </label>
-                            </div>
-                            <div class="multiple-choice">
-                            <label>
-                                <input type="radio" id="nonCourse" name="course-related" value="No">
-                                No
-                            </label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class="form-group">
-                            <fieldset class="inline">
+                        <div class="form-group">
+                            <fieldset class="inline" onchange="toggleCourseSection()">
                                 <legend>
-                                    Is the session related to <a href="#">special collections</a>?
+                                    Is the session for a UofM course?
                                 </legend>
                         
                                 <div class="multiple-choice">
                                 <label>
-                                    <input type="radio" name="special-collections" value="Yes">
+                                    <input type="radio" name="course-related" value="Yes" checked>
                                     Yes
                                 </label>
                                 </div>
                                 <div class="multiple-choice">
                                 <label>
-                                    <input type="radio" name="special-collections" value="No">
+                                    <input type="radio" id="nonCourse" name="course-related" value="No">
                                     No
                                 </label>
                                 </div>
-                                <div class="multiple-choice">
-                                        <label>
-                                            <input type="radio" name="special-collections" value="NotSure" checked>
-                                            I am not sure
-                                        </label>
-                                </div>
                             </fieldset>
-                    </div>
-                </div>
+                        </div>
 
-            <div class="container button-section">
-                <button class="button next-btn" onclick="moveToStep2()">
-                    Next
-                    <div class="icon">
-                        <svg class="svg-icon" viewBox="0 0 17 17">
-                            <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
-                            l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
-                            c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
-                            c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
-                            S1.293,9.212,1.729,9.212z"></path>
-                        </svg>
+                        <div class="form-group">
+                                <fieldset class="inline">
+                                    <legend>
+                                        Is the session related to <a href="#">special collections</a>?
+                                    </legend>
+                            
+                                    <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="special-collections" value="Yes">
+                                        Yes
+                                    </label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                    <label>
+                                        <input type="radio" name="special-collections" value="No">
+                                        No
+                                    </label>
+                                    </div>
+                                    <div class="multiple-choice">
+                                            <label>
+                                                <input type="radio" name="special-collections" value="NotSure" checked>
+                                                I am not sure
+                                            </label>
+                                    </div>
+                                </fieldset>
+                        </div>
                     </div>
-                </button>
-            </div>
+
+                <div class="container button-section">
+                    <button class="button next-btn" onclick="moveToStep2()">
+                        Next
+                        <div class="icon">
+                            <svg class="svg-icon" viewBox="0 0 17 17">
+                                <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                                l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                                c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                                c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                                S1.293,9.212,1.729,9.212z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </main>
         </div>
 
         <div class="container" id="course">
             </br>
             </br>
             </br>
-            <div class="form-group">
-                    <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
-                    <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli" onblur="displayCourse()"/>
-                    <a href="#" style="margin-left: 10px">Search by name</a>
-            </div>
+            <main class="container">
+                <div class="form-group">
+                        <label class="form-label" for="uniqname">Faculty/GSI Uniqname</label>
+                        <input class="form-control" id="uniqname" type="text" name="uniqname" value="sallyoli" onblur="displayCourse()"/>
+                        <a href="#" style="margin-left: 10px">Search by name</a>
+                </div>
 
-            <div class="form-group">
-                <label class="form-label" for="term">Term</label>
-                <select class="form-control form-control--auto-width" id="term" name="term" onchange="displayCourse()">
-                <option value="" disabled selected >-- Select --</option>
-                <option value="2018 Fall">2018 Fall</option>
-                <option value="2018 Summer">2018 Summer</option>
-                <option value="2018 Winter">2018 Winter</option>
-                <option value="2017 Fall">2017 Fall</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label class="form-label" for="term">Term</label>
+                    <select class="form-control form-control--auto-width" id="term" name="term" onchange="displayCourse()">
+                    <option value="" disabled selected >-- Select --</option>
+                    <option value="2018 Fall">2018 Fall</option>
+                    <option value="2018 Summer">2018 Summer</option>
+                    <option value="2018 Winter">2018 Winter</option>
+                    <option value="2017 Fall">2017 Fall</option>
+                    </select>
+                </div>
 
-            <div class="form-group" id="course-selection">
-                <table class="text" id="course-selection-table">
-                        <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
-                        <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col" width= "20%">Subject</th>
-                            <th scope="col" width= "20%">Course#</th>
-                            <th scope="col" width= "20%">Section#</th>
-                            <th scope="col" width= "35%">Course Title</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td scope="row"><input type="radio" name="course" value="SAC 236 001(LEC) Art of Film" ></th>
-                            <td scope="row">SAC</td>
-                            <td scope="row">236</td>
-                            <td scope="row">001(LEC)</td>
-                            <td scope="row">Art of Film</td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><input type="radio" name="course" value="SAC 236 002(LAB) Art of Film" ></th>
-                            <td scope="row">SAC</td>
-                            <td scope="row">236</td>
-                            <td scope="row">002(LAB)</td>
-                            <td scope="row">Art of Film</td>
-                        </tr>
-                        <tr>
-                            <td scope="row"><input type="radio" name="course" value="SAC 271 201 Classical Film Thry" ></th>
-                            <td scope="row">SAC</td>
-                            <td scope="row">271</td>
-                            <td scope="row">201</td>
-                            <td scope="row">Classical Film Thry</td>
-                        </tr>
-                        </tbody>
-                </table>
+                <div class="form-group" id="course-selection">
+                    <table class="text" id="course-selection-table">
+                            <caption>Select a course taught by Sally Oliver in Fall 2018: </caption>
+                            <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col" width= "20%">Subject</th>
+                                <th scope="col" width= "20%">Course#</th>
+                                <th scope="col" width= "20%">Section#</th>
+                                <th scope="col" width= "35%">Course Title</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 236 001(LEC) Art of Film" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">001(LEC)</td>
+                                <td scope="row">Art of Film</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 236 002(LAB) Art of Film" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">236</td>
+                                <td scope="row">002(LAB)</td>
+                                <td scope="row">Art of Film</td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><input type="radio" name="course" value="SAC 271 201 Classical Film Thry" ></th>
+                                <td scope="row">SAC</td>
+                                <td scope="row">271</td>
+                                <td scope="row">201</td>
+                                <td scope="row">Classical Film Thry</td>
+                            </tr>
+                            </tbody>
+                    </table>
 
-                <input type="radio" name="course" value="manual" id="manual">
-                <label for="manual" style="margin:15px">Input course info manually</label> 
-            </div>
+                    <input type="radio" name="course" value="manual" id="manual" checked>
+                    <label for="manual" style="margin:15px">Input course info manually</label> 
+                </div>
 
-            <div id="course-not-found-error">
+                <div id="course-not-found-error">
+                    
+                </div>
                 
-            </div>
-            
-            <div id="course-input">
-                <div class="form-group">
-                    <label class="form-label" for="courseTitle">Course Title</label>
-                    <input class="form-control" id="courseTitle" type="text" name="courseTitle" required/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="subject">Subject</label>
-                    <input class="form-control" id="subject" type="text" name="subject" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="courseNumber">Course Number</label>
-                    <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="sectionNumber">Section Number</label>
-                    <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label" for="file-input" style="width:80%">Please attach the syllabus, assignments or other documents that can help us better understand your course.</label>
-                <input type="file" id="file-input">
-            </br>
-                <a href="#" style="font-size: 0.8em">Add another attachment</a>
-            </div> 
-            
-            <div class="container button-section">
-                <button class="button previous-btn" onclick="backToStep1()">
-                    <div class="icon">
-                        <svg class="svg-icon svg-icon-blue" viewBox="0 0 17 17">
-                            <path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
-                            L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
-                            c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
-                            c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
-                            S18.707,9.212,18.271,9.212z"></path>
-                        </svg>
-                        Previous
+                <div id="course-input">
+                    <div class="form-group">
+                        <label class="form-label" for="courseTitle">Course Title</label>
+                        <input class="form-control" id="courseTitle" type="text" name="courseTitle" required/>
                     </div>
-                </button>
-                <button class="button next-btn" onclick="moveToStep3()">
-                    Next
-                    <div class="icon">
-                        <svg class="svg-icon" viewBox="0 0 17 17">
-                            <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
-                            l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
-                            c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
-                            c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
-                            S1.293,9.212,1.729,9.212z"></path>
-                        </svg>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input class="form-control" id="subject" type="text" name="subject" />
                     </div>
-                </button>
-            </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="courseNumber">Course Number</label>
+                        <input class="form-control" id="courseNumber" type="text" name="courseNumber" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="sectionNumber">Section Number</label>
+                        <input class="form-control" id="sectionNumber" type="text" name="sectionNumber" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="file-input" style="width:80%">Please attach the syllabus, assignments or other documents that can help us better understand your course.</label>
+                    <input type="file" id="file-input">
+                </br>
+                    <a href="#" style="font-size: 0.8em">Add another attachment</a>
+                </div> 
+                
+                <div class="container button-section">
+                    <button class="button previous-btn" onclick="backToStep1()">
+                        <div class="icon">
+                            <svg class="svg-icon svg-icon-blue" viewBox="0 0 17 17">
+                                <path fill="none" d="M18.271,9.212H3.615l4.184-4.184c0.306-0.306,0.306-0.801,0-1.107c-0.306-0.306-0.801-0.306-1.107,0
+                                L1.21,9.403C1.194,9.417,1.174,9.421,1.158,9.437c-0.181,0.181-0.242,0.425-0.209,0.66c0.005,0.038,0.012,0.071,0.022,0.109
+                                c0.028,0.098,0.075,0.188,0.142,0.271c0.021,0.026,0.021,0.061,0.045,0.085c0.015,0.016,0.034,0.02,0.05,0.033l5.484,5.483
+                                c0.306,0.307,0.801,0.307,1.107,0c0.306-0.305,0.306-0.801,0-1.105l-4.184-4.185h14.656c0.436,0,0.788-0.353,0.788-0.788
+                                S18.707,9.212,18.271,9.212z"></path>
+                            </svg>
+                            Previous
+                        </div>
+                    </button>
+                    <button class="button next-btn" onclick="moveToStep3()">
+                        Next
+                        <div class="icon">
+                            <svg class="svg-icon" viewBox="0 0 17 17">
+                                <path fill="none" d="M1.729,9.212h14.656l-4.184-4.184c-0.307-0.306-0.307-0.801,0-1.107c0.305-0.306,0.801-0.306,1.106,0
+                                l5.481,5.482c0.018,0.014,0.037,0.019,0.053,0.034c0.181,0.181,0.242,0.425,0.209,0.66c-0.004,0.038-0.012,0.071-0.021,0.109
+                                c-0.028,0.098-0.075,0.188-0.143,0.271c-0.021,0.026-0.021,0.061-0.045,0.085c-0.015,0.016-0.034,0.02-0.051,0.033l-5.483,5.483
+                                c-0.306,0.307-0.802,0.307-1.106,0c-0.307-0.305-0.307-0.801,0-1.105l4.184-4.185H1.729c-0.436,0-0.788-0.353-0.788-0.788
+                                S1.293,9.212,1.729,9.212z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </main>
         </div>
 
         <div class="container" id="session">
@@ -518,7 +529,8 @@
                 <path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"></path>
             </svg>
             <h3 class="submit-message">Thank you for submitting the request!</h3>
-            <h3 class="submit-message">We will be in touch soon.</h3>
+            <h3 class="submit-message">You can track the request on <a style="cursor:pointer">SALI dashboard</a>.</h3>
+            
             </br>
             <p style="margin-bottom: 0">Want to make a new request similar to this one?</p>
             <p class="copy" onclick="closeSubmitDialog()">Make a copy</p>

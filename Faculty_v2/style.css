@@ -81,19 +81,15 @@
 }
 
 .step-3:first-child::after {
-    content: "Contact info/Purpose";
+    content: "Contact Info/Purpose";
 }
 
 .step-3:nth-child(2)::after {
-    content: "Course info";
+    content: "Course Info";
 }
 
 .step-3:nth-child(3)::after {
-    content: "Instruction Session info";
-}
-
-.step-3:nth-child(4)::after {
-    content: "Additional options";
+    content: "Instruction Session Info";
 }
 
 .svg-icon {

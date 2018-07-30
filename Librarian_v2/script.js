@@ -1,16 +1,29 @@
-var steps = document.querySelectorAll(".step-4");
-steps[0].classList.add('current-step');
+var steps_4 = document.querySelectorAll(".step-4");
+steps_4[0].classList.add('current-step');
+
+var steps_3 = document.querySelectorAll(".step-3");
+steps_3[0].classList.add('current-step');
 
 function moveToStep2(){
     var contactSection = document.querySelector("#contact");
     var courseSection = document.querySelector("#course");
-    var steps = document.querySelectorAll(".step-4");
+    var sessionSection = document.querySelector("#session");
+    var nonCourse = document.querySelector("#nonCourse");
+    var steps_4 = document.querySelectorAll(".step-4");
+    var steps_3 = document.querySelectorAll(".step-3");
 
     contactSection.style.display = "none";
-    courseSection.style.display = "block";
-    steps[0].classList.remove('current-step');
-    steps[0].classList.add('complete-step');
-    steps[1].classList.add('current-step');
+    if(nonCourse.checked){
+        sessionSection.style.display="block";
+    } else {
+        courseSection.style.display = "block";
+    }
+    steps_4[0].classList.remove('current-step');
+    steps_4[0].classList.add('complete-step');
+    steps_4[1].classList.add('current-step');
+    steps_3[0].classList.remove('current-step');
+    steps_3[0].classList.add('complete-step');
+    steps_3[1].classList.add('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
@@ -18,40 +31,58 @@ function moveToStep2(){
 function backToStep1(){
     var contactSection = document.querySelector("#contact");
     var courseSection = document.querySelector("#course");
-    var steps = document.querySelectorAll(".step-4");
+    var sessionSection = document.querySelector("#session");
+    var nonCourse = document.querySelector("#nonCourse");
+    var steps_4 = document.querySelectorAll(".step-4");
+    
     contactSection.style.display = "block";
     courseSection.style.display = "none";
-    steps[0].classList.remove('complete-step');
-    steps[0].classList.add('current-step');
-    steps[1].classList.remove('current-step');
+ 
+    steps_4[0].classList.remove('complete-step');
+    steps_4[0].classList.add('current-step');
+    steps_4[1].classList.remove('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
 function moveToStep3(){
     var sessionSection = document.querySelector("#session");
-    var courseSection = document.querySelector("#course");
-    var steps = document.querySelectorAll(".step-4");
+    var courseSection = document.querySelector("#course");;
+    var steps_4 = document.querySelectorAll(".step-4");
 
     courseSection.style.display = "none";
     sessionSection.style.display = "block";
-    steps[1].classList.remove('current-step');
-    steps[1].classList.add('complete-step');
-    steps[2].classList.add('current-step');
+
+    steps_4[1].classList.remove('current-step');
+    steps_4[1].classList.add('complete-step');
+    steps_4[2].classList.add('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
 function backToStep2(){
+    var contactSection = document.querySelector("#contact");
     var sessionSection = document.querySelector("#session");
     var courseSection = document.querySelector("#course");
-    var steps = document.querySelectorAll(".step-4");
+    var schedulingSection = document.querySelector("#scheduling");
+    var nonCourse = document.querySelector("#nonCourse");
+    var steps_4 = document.querySelectorAll(".step-4");
+    var steps_3 = document.querySelectorAll(".step-3");
 
-    courseSection.style.display = "block";
-    sessionSection.style.display = "none";
-    steps[1].classList.remove('complete-step');
-    steps[1].classList.add('current-step');
-    steps[2].classList.remove('current-step');
+    if(nonCourse.checked){
+        contactSection.style.display = "block";
+        sessionSection.style.display = "none";
+        courseSection.style.display = "none";
+    } else {
+        courseSection.style.display = "block";
+        sessionSection.style.display = "none";
+    }
+    steps_4[1].classList.remove('complete-step');
+    steps_4[1].classList.add('current-step');
+    steps_4[2].classList.remove('current-step');
+    steps_3[0].classList.remove('complete-step');
+    steps_3[0].classList.add('current-step');
+    steps_3[1].classList.remove('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
@@ -59,13 +90,17 @@ function backToStep2(){
 function moveToStep4(){
     var sessionSection = document.querySelector("#session");
     var schedulingSection = document.querySelector("#scheduling");
-    var steps = document.querySelectorAll(".step-4");
+    var steps_4 = document.querySelectorAll(".step-4");
+    var steps_3 = document.querySelectorAll(".step-3");
 
     sessionSection.style.display = "none";
     schedulingSection.style.display = "block";
-    steps[2].classList.remove('current-step');
-    steps[2].classList.add('complete-step');
-    steps[3].classList.add('current-step');
+    steps_4[2].classList.remove('current-step');
+    steps_4[2].classList.add('complete-step');
+    steps_4[3].classList.add('current-step');
+    steps_3[1].classList.remove('current-step');
+    steps_3[1].classList.add('complete-step');
+    steps_3[2].classList.add('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
@@ -73,17 +108,42 @@ function moveToStep4(){
 function backToStep3(){
     var sessionSection = document.querySelector("#session");
     var schedulingSection = document.querySelector("#scheduling");
-    var steps = document.querySelectorAll(".step-4");
+    var steps_4 = document.querySelectorAll(".step-4");
+    var steps_3 = document.querySelectorAll(".step-3");
 
     schedulingSection.style.display = "none";
     sessionSection.style.display = "block";
-    steps[2].classList.remove('complete-step');
-    steps[2].classList.add('current-step');
-    steps[3].classList.remove('current-step');
+    steps_4[2].classList.remove('complete-step');
+    steps_4[2].classList.add('current-step');
+    steps_4[3].classList.remove('current-step');
+    steps_3[1].classList.remove('complete-step');
+    steps_3[1].classList.add('current-step');
+    steps_3[2].classList.remove('current-step');
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
+function toggleCourseSection(){
+    var nonCourse = document.querySelector("#nonCourse");
+    var sessionTitle = document.querySelector("#sessionTitle");
+    var locationInput = document.querySelector("#location-input");
+    var steps_4 = document.querySelector("#steps-4");
+    var steps_3 = document.querySelector("#steps-3");
+
+    if (nonCourse.checked){
+        steps_3.style.display="block";
+        steps_4.style.display="none";
+        sessionTitle.disabled = false;
+        sessionTitle.style.opacity = 1;
+        locationInput.style.display = "none";
+    } else {
+        steps_3.style.display="none";
+        steps_4.style.display="block";
+        sessionTitle.disabled = true;
+        sessionTitle.style.opacity = 0.4;
+        locationInput.style.display = "block";
+    }
+}
 
 function displayCourse(){
     var uniqname = document.querySelector("#uniqname");
