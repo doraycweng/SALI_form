@@ -97,10 +97,11 @@ h3{
     cursor: pointer;
 }
 
+
 .divider {
     width: 85%; 
     height: 1px; 
-    background-color:gray; 
-    margin-top: 3px; 
-    margin-bottom: 35px
+    background-color:rgb(78, 78, 78); 
+    margin-top: 4px; 
+    margin-bottom: 38px
 }

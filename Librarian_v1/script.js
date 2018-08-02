@@ -54,18 +54,23 @@ Array.from(courseRadios).forEach(function(radio){
 })
 
 function displayLocationDetail(){
-    var locationDetailSpecific = document.querySelector("#location-detail-specific");
-    var haveRoom = document.querySelector("#haveRoom");
+    // var locationDetailSpecific = document.querySelector("#location-detail-specific");
+    // var haveRoom = document.querySelector("#haveRoom");
     var locationDetailPreferred = document.querySelector("#location-detail-preferred");
     var needHelp = document.querySelector("#needHelp");
-    if (haveRoom.checked){
-        locationDetailSpecific.style.display = "block";
-        locationDetailPreferred.style.display = "none";
-    } else if (needHelp.checked) {
-        locationDetailSpecific.style.display = "none";
+    // if (haveRoom.checked){
+    //     locationDetailSpecific.style.display = "block";
+    //     locationDetailPreferred.style.display = "none";
+    // } else if (needHelp.checked) {
+    //     locationDetailSpecific.style.display = "none";
+    //     locationDetailPreferred.style.display = "block";
+    // } else {
+    //     locationDetailSpecific.style.display = "none";
+    //     locationDetailPreferred.style.display = "none";
+    // }
+    if(needHelp.checked){
         locationDetailPreferred.style.display = "block";
     } else {
-        locationDetailSpecific.style.display = "none";
         locationDetailPreferred.style.display = "none";
     }
 }
